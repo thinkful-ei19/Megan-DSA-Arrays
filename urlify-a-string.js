@@ -1,22 +1,17 @@
 'use strict';
-//**initial go was O(n) but we can do better...initial below:
 
-// function urlifyAString (str){
-//   let newArray=[];
-//   const splitStr= str.split('');
-//   splitStr.forEach(char=>{
-//     if(char===' '){
-//       return newArray.push('%20');
-//     }
-//     newArray.push(char);
-//   });
-//   return newArray.join('');
-// }
-// console.log(urlifyAString('hello there'));
-
-
-//** final go is O(1) which is best.
-function urlifyAString2 (str){
-  return str.replace(/ /gi, '%20');
+function urlifyAString (str){
+  let newString='';
+  
+  for(let i=0; i<str.length; i++){
+    if(str[i]===' '){
+      newString += '%20';
+    }
+    else{ 
+      newString += str[i];}
+  }
+  return newString;
 }
-console.log(urlifyAString2('hello there '));
+//O(n)
+
+console.log(urlifyAString('hello there '));
